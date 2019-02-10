@@ -1,0 +1,26 @@
+h1, h2 {
+  font-size:14px;
+  background-color: blue;
+}
+
+h1 a {
+  color: #FCA205;
+  font-size:14px;
+  background-color: blue;
+}
+
+p {
+  color: green;
+  text-align: center;
+}
+
+h3 {
+  color: blue;
+  text-align: center;
+}
+
+p title {
+  font-size:14px;
+  background-color: blue;
+
+}

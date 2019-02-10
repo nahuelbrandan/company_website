@@ -1,0 +1,29 @@
+<html>
+
+<head>
+  <!--{% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap.css' %}" />-->
+</head>
+
+<body>
+  <!-- {% include 'navbar.html' %} -->
+
+  <h1>Loggin</h1>
+
+  <form action="/login" method="POST">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="Submit">
+  </form>
+
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</body>
+
+</html>

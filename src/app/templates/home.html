@@ -1,10 +1,44 @@
 <html>
 
 <head>
+  <!--{% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap.css' %}" />-->
 </head>
 
 <body>
-    <p> Hola perro!!!!! </p>
+  <!-- {% include 'navbar.html' %} -->
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+
+  <h1>Bienvenidos a compartir alquiler</h1>
+
+  <p>
+    En los tiempos que corren, los precios de alquiler son inviables para pagarse
+    por una sóla persona, una buena alternativa es buscar a alguien para compartir los gastos.
+    <br>
+    Nuestro trabajo es emparejarte con la persona que más se adapte a tus necesidades.
+  </p>
+
+  <form action='{% url 'register' %}' method='GET'>
+      {% csrf_token %}
+      <input type="submit" value="Register" />
+  </form>
+  <form action='{% url 'login' %}' method='GET'>
+      {% csrf_token %}
+      <input type="submit" value="Login" />
+  </form>
+  <form action='{% url 'add_room' %}' method='GET'>
+      <input type="submit" value="Publicá tu habitación disponible!" />
+  </form>
+
+
+
 </body>
 
 </html>

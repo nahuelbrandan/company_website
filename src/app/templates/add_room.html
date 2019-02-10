@@ -1,0 +1,20 @@
+<html>
+
+<head>
+  <!--{% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap.css' %}" />-->
+</head>
+
+<body>
+  <!-- {% include 'navbar.html' %} -->
+  <h1>Add Room</h1>
+
+  <form action="/add_room" method="POST">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="Submit">
+  </form>
+</body>
+
+</html>

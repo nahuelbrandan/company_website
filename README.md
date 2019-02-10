@@ -26,7 +26,7 @@ Aplicación web, desarrollada en Python con Django, para poder encontrar compañ
     setuptools 40.8.0
     wheel      0.32.3
     """
-5.  Instalar django: `pip3 install django`
+5.  Instalar django: `pip3 install django pillow`
 6.  [Éste paso sólo lo realizo yo por única vez para crear el proyecto.]
     `django-admin startproject compartir_alquiler`
 8.  Ejecutar `$ bash first_time.sh`. Se te pedirá que ingreses usuario y contraseña para crear tu cuenta como admin.
