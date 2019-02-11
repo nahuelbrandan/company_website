@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  <!-- {% include 'navbar.html' %} -->
+  {% include 'navbar.html' %}
   <h1 class='title'>Bienvenido a compartir alquiler!</h1>
 
   <p class='description'>
@@ -17,16 +17,8 @@
     Nuestro trabajo es emparejarte con la persona que más se adapte a tus necesidades.
   </p>
 
-  <form class='button' action='{% url 'register' %}' method='GET'>
-      <button type="button" class="btn btn-primary">Registrarse</button>
-  </form>
-
-  <form class='button' action='{% url 'login' %}' method='GET'>
-      <button type="button" class="btn btn-primary">Ingresar</button>
-  </form>
-
-  <form class='button' action='{% url 'add_room' %}' method='GET'>
-    <button type="button" class="btn btn-success">Publicá tu habitación disponible</button>
+  <form action='{% url 'add_room' %}' method='GET'>
+    <input type="submit" value="Publicá tu habitación disponible">
   </form>
 
 
