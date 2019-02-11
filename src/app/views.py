@@ -54,6 +54,5 @@ class AddRoomView(View):
 
     def post(self, req):
         form = AddRoomForm(req.POST)
-        print("\n\n\n", form, "\n\n")
         Room.objects.create(**form.cleaned_data)
         return HttpResponse('Listo perro!')

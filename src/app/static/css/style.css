@@ -1,4 +1,11 @@
-h1 {
-  color: red;
+.title {
+  color: grey;
+  font-size: 300%;
+  font-family:serif;
   text-align: center;
+}
+
+.description {
+  color: black;
+  font-size: 180%;
 }

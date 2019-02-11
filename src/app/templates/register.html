@@ -1,9 +1,9 @@
 <html>
 
 <head>
-  <!--{% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap.css' %}" />-->
+  {% load static %}
+  <!--<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />-->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap.min.css' %}" />
 </head>
 
 <body>
@@ -11,10 +11,21 @@
 
   <h1>Registrarse</h1>
 
+  {% load crispy_forms_tags %}
   <form action="/register" method="POST">
       {% csrf_token %}
-      {{ form }}
-      <input type="submit" value="Submit">
+      <div class="row">
+        <div class="col-6">
+          {{ form.first_name|as_crispy_field }}
+        </div>
+        <div class="col-6">
+          {{ form.last_name|as_crispy_field }}
+        </div>
+      </div>
+      {{ form.username|as_crispy_field }}
+      {{ form.password|as_crispy_field }}
+      {{ form.email|as_crispy_field }}
+      <button type="submit" class="btn btn-success"> Registrarse</button>
   </form>
 
 </body>

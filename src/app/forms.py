@@ -16,6 +16,6 @@ class LoginForm(forms.Form):
 
 class AddRoomForm(forms.Form):
     title = forms.CharField(label='Titulo', max_length=100, required=True)
-    description = forms.CharField(max_length=1000, required=True)
+    description = forms.CharField(widget=forms.Textarea, required=True)
     address = forms.CharField(max_length=100, required=True)
     image = forms.ImageField(required=True)
