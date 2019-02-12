@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserForm, LoginForm, AddRoomForm
 from .models import Room
 
+
 class HomeView(View):
     def get(self, req):
         return render(req, 'home.html')
