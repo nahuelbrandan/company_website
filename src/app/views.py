@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic import View
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -60,6 +60,11 @@ class LoginView(View):
                 return redirect('login')
 
 
+class LogoutView(View):
+    def get(self, req):
+        logout(req)
+        return HttpResponse('Saludos, esperamos que vuelva pronto.')
+
 class AddRoomView(View):
     def get(self, req):
         form = AddRoomForm()
@@ -69,3 +74,13 @@ class AddRoomView(View):
         form = AddRoomForm(req.POST)
         Room.objects.create(**form.cleaned_data)
         return HttpResponse('Listo perro!')
+
+
+class MeView(View):
+    def get(self, req):
+        context = {
+            'username': req.user.username,
+            'user': req.user,
+            'is_authenticated': req.user.is_authenticated
+        }
+        return render(req, 'me.html', context)
