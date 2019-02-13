@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'livereload',
     'crispy_forms',
+    'termcolor',
 ]
 
 MIDDLEWARE = [

@@ -12,7 +12,7 @@
   <h1>Loggin</h1>
 
   {% load crispy_forms_tags %}
-  <form action="/login" method="POST">
+  <form action="/login/" method="POST">
       {% csrf_token %}
       {{ form|crispy }}
       <button type="submit" class="btn btn-success">Loggin</button>

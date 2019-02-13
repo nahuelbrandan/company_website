@@ -8,11 +8,15 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import UserForm, LoginForm, AddRoomForm
 from .models import Room
-
+from termcolor import cprint
 
 class HomeView(View):
     def get(self, req):
-        return render(req, 'home.html')
+        context = {
+            'is_authenticated': req.user.is_authenticated,
+            'username': req.user.username
+        }
+        return render(req, 'home.html', context)
 
 
 class RegisterView(View):
@@ -38,14 +42,22 @@ class LoginView(View):
 
     def post(self, req):
         form = LoginForm(req.POST)
-        user = authenticate(**form.cleaned_data)
-        if user is None:
-            messages.info(req, 'El usuario o contraseña son incorrectos. Vuelva a intentar')
-            return redirect('login')
-        else:
-            login(req, user)
-            messages.info(req, 'Loggin correcto. Ingresando.')
-            return redirect('home')
+
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+            cprint(user, 'magenta')
+            if user is not None:
+                cprint("Entro a User", 'magenta')
+                login(req, user)
+                messages.info(req, 'Loggin correcto. Ingresando.')
+                return redirect('home')
+            else:
+                cprint("Not User", 'magenta')
+
+                messages.info(req, 'El usuario o contraseña son incorrectos. Vuelva a intentar')
+                return redirect('login')
 
 
 class AddRoomView(View):
