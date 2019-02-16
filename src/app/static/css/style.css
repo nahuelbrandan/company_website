@@ -1,14 +1,21 @@
 .title {
   color: grey;
-  font-size: 200%;
-  font-family:fantasy;
+  font-size: 300%;
+  font-family: fantasy;
+  text-align: center;
 }
 
 .description {
   color: black;
-  font-size: 180%;
+  font-size: 200%;
 }
 
 .user_info h3, h4 {
   text-align: center;
+}
+
+.center_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

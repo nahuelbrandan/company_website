@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .forms import UserForm, LoginForm, AddRoomForm
+from .forms import UserForm, LoginForm, AddProductForm
 from .models import Room
 from termcolor import cprint
 
@@ -79,13 +79,13 @@ class LogoutView(View):
 class AddRoomView(View):
     def get(self, req):
         context = {
-            'form': AddRoomForm(),
+            'form': AddProductForm(),
             'company_name': company_name
         }
         return render(req, 'add_product.html', context)
 
     def post(self, req):
-        form = AddRoomForm(req.POST)
+        form = AddProductForm(req.POST)
         Room.objects.create(**form.cleaned_data)
         return HttpResponse('Listo perro!')
 
