@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .forms import UserForm, LoginForm, AddProductForm
-from .models import Room
+from .models import Product
 from termcolor import cprint
 
 company_name = "Company Name"
@@ -16,6 +16,7 @@ company_name = "Company Name"
 class HomeView(View):
     def get(self, req):
         context = {
+            'is_superuser': req.user.is_superuser,
             'is_authenticated': req.user.is_authenticated,
             'username': req.user.username,
             'company_name': company_name
@@ -57,15 +58,11 @@ class LoginView(View):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             user = authenticate(username=username, password=password)
-            cprint(user, 'magenta')
             if user is not None:
-                cprint("Entro a User", 'magenta')
                 login(req, user)
                 messages.info(req, 'Loggin correcto. Ingresando.')
                 return redirect('home')
             else:
-                cprint("Not User", 'magenta')
-
                 messages.info(req, 'El usuario o contraseña son incorrectos. Vuelva a intentar')
                 return redirect('login')
 
@@ -73,7 +70,7 @@ class LoginView(View):
 class LogoutView(View):
     def get(self, req):
         logout(req)
-        return HttpResponse('Saludos, esperamos que vuelva pronto.')
+        return redirect('home')
 
 
 class AddRoomView(View):
@@ -85,9 +82,12 @@ class AddRoomView(View):
         return render(req, 'add_product.html', context)
 
     def post(self, req):
-        form = AddProductForm(req.POST)
-        Room.objects.create(**form.cleaned_data)
-        return HttpResponse('Listo perro!')
+        form = AddProductForm(req.POST, req.FILES)
+        if form.is_valid():
+            Product.objects.create(**form.cleaned_data)
+            return HttpResponse('Producto agregado con éxito!')
+        else:
+            return HttpResponse('Lo siento. Hubo algun problema. Vuelva a intentarlo.')
 
 
 class MeView(View):

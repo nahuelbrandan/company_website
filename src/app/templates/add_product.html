@@ -2,7 +2,7 @@
 {% block content %}
   {% load crispy_forms_tags %}
   <div class="center_form">
-    <form action="/add_product/" method="POST">
+    <form action="/add_product/" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <h1>Agregar producto.</h1>
         {{ form|crispy }}

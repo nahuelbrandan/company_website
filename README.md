@@ -34,3 +34,5 @@ Aplicación web, desarrollada en Python con Django, para poder encontrar compañ
     para que automáticamente se refresque la página al haber algún cambio ejecutar primero `% python manage.py livereload` en una terminal, y en otra `$ python manage.py runserver`
 
     #python manage.py createsuperuser;
+
+Sólo los Super usuarios pueden agregar productos de venta.
