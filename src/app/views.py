@@ -10,19 +10,26 @@ from .forms import UserForm, LoginForm, AddRoomForm
 from .models import Room
 from termcolor import cprint
 
+company_name = "Company Name"
+
+
 class HomeView(View):
     def get(self, req):
         context = {
             'is_authenticated': req.user.is_authenticated,
-            'username': req.user.username
+            'username': req.user.username,
+            'company_name': company_name
         }
         return render(req, 'home.html', context)
 
 
 class RegisterView(View):
     def get(self, req):
-        form = UserForm()
-        return render(req, 'register.html', {'form': form})
+        context = {
+            'form': UserForm(),
+            'company_name': company_name
+        }
+        return render(req, 'register.html', context)
 
     def post(self, req):
         # create a form instance and populate it with data from the req:
@@ -37,8 +44,11 @@ class RegisterView(View):
 
 class LoginView(View):
     def get(self, req):
-        form = LoginForm()
-        return render(req, 'login.html', {'form': form})
+        context = {
+            'form': LoginForm(),
+            'company_name': company_name
+        }
+        return render(req, 'login.html', context)
 
     def post(self, req):
         form = LoginForm(req.POST)
@@ -65,10 +75,14 @@ class LogoutView(View):
         logout(req)
         return HttpResponse('Saludos, esperamos que vuelva pronto.')
 
+
 class AddRoomView(View):
     def get(self, req):
-        form = AddRoomForm()
-        return render(req, 'add_room.html', {'form': form})
+        context = {
+            'form': AddRoomForm(),
+            'company_name': company_name
+        }
+        return render(req, 'add_product.html', context)
 
     def post(self, req):
         form = AddRoomForm(req.POST)
@@ -79,6 +93,7 @@ class AddRoomView(View):
 class MeView(View):
     def get(self, req):
         context = {
+            'company_name': company_name,
             'username': req.user.username,
             'user': req.user,
             'is_authenticated': req.user.is_authenticated

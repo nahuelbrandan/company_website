@@ -1,31 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <a class="my-0 mr-md-auto text-dark" href="{%url 'home'%}">{{company_name}}</a>
 
-  <a class="white_" href="{% url 'home'%}">Compartir Alquiler</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-    </ul>
-
+  <nav class="my-2 my-md-0 mr-md-3">
     {% if is_authenticated %}
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'me'%}"><span class="glyphicon glyphicon-user"></span> {{username}}</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'logout'%}"><span class="glyphicon glyphicon-log-out"></span>Salir</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      </li>
+      <a class="p-4 text-dark" href="{% url 'me'%}"><span class="glyphicon glyphicon-user"></span> {{username}}</a>
+      <a class="p-4 text-dark" href="{% url 'logout'%}"><span class="glyphicon glyphicon-log-out"></span> Salir</a>
     {% else %}
-      <li class="nav-item">
-        <a class="nav-link" href="/register"><span class="glyphicon glyphicon-user"></span>Registrarse</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="/login"><span class="glyphicon glyphicon-log-in"></span>Ingresar</a> &nbsp;&nbsp;·&nbsp;&nbsp;
-      </li>
+      <a class="p-4 text-dark" href="{% url 'login'%}">Ingresar</a>
+      <a class="p-4 text-dark" href="{% url 'register'%}">Registrarse</a>
     {% endif %}
-  </div>
-</nav>
+  </nav>
+</div>
