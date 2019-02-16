@@ -19,8 +19,10 @@ class HomeView(View):
             'is_superuser': req.user.is_superuser,
             'is_authenticated': req.user.is_authenticated,
             'username': req.user.username,
-            'company_name': company_name
+            'company_name': company_name,
+            'products': Product.objects.all()
         }
+        cprint(Product.objects.all().values_list('principal_image'), 'magenta')
         return render(req, 'home.html', context)
 
 

@@ -1,8 +1,70 @@
 {% extends 'layout.html' %}
 {% block content %}
-  <h1 class='title'>Bienvenido a {{company_name}}!</h1>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  {% load static %}
 
-  <p class='description'>
-    Breve descripción de la empresa.
-  </p>
+  <h1 class='title'> {{company_name}} </h1>
+
+  <div class="how-section1">
+    <div class="row">
+      <div class="col-md-6 how-img">
+        <img src="https://www.rockandpop.cl/wp-content/uploads/2019/02/Friends.jpg" alt=""/>
+      </div>
+      <div class="col-md-6">
+        <h4>Somos una gran familia</h4>
+        <p class="text-muted">
+          Friends (estilizado «F·R·I·E·N·D·S»), es una serie de televisión estadounidense
+          sobre la vida de un grupo de amigos —Chandler Bing, Phoebe Buffay, Monica Geller,
+          Ross Geller, Rachel Green y Joey Tribbiani— que residen en Manhattan, Nueva York.
+          Suceden tanto buenos como malos momentos, pero con una crítica cómica a los hechos
+          más trascendentales de la actualidad.<br>
+          EJEMPLO DE DESCRIPCIÓN DE LA EMPRESA.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Como me rei con ésta serie</h4>
+        <p class="text-muted">
+          The Office es una serie de televisión de comedia estadounidense,
+          ​La serie trata la vida diaria de los empleados de la oficina de
+          Scranton (Pensilvania) de la compañía de papel ficticia Dunder Mifflin.
+          Aunque la serie es de ficción y tiene guiones, se trata de un falso documental,
+          ya que los actores advierten la presencia de las cámaras.<br>
+          EJEMPLO DE DESCRIPCIÓN DE LA EMPRESA.
+        </p>
+      </div>
+      <div class="col-md-6 how-img">
+        <img src="https://www.tvinsider.com/wp-content/uploads/2017/12/The-office-1014x570.jpg" alt=""/>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3 class="h3"> Productos destacados. </h3>
+    <div class="row">
+      {% for product in products %}
+        <div class="col-md-3 col-sm-6">
+          <div class="product-grid6">
+            <div class="product-image6">
+              <a href="#"><img src="{{product.principal_image.url}}"></a>
+            </div>
+            <div class="product-content">
+              <h3 class="title"><a href="#">{{product.title}}</a></h3>
+              <div class="price">${{product.price}}</div>
+            </div>
+            <ul class="social">
+              <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+              <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+              <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+<hr>
+
 {% endblock %}
