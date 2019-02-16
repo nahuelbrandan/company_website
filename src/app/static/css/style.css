@@ -14,6 +14,12 @@
 .user_info h3, h4 {
   text-align: center;
 }
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
 .center_form {
   display: flex;
@@ -21,24 +27,22 @@
   align-items: center;
 }
 
-.how-section1{
+.how-section1 {
     margin-top:-15%;
     padding: 10%;
 }
-.how-section1 h4{
+.how-section1 h4 {
     color: #ffa500;
     font-weight: bold;
     font-size: 30px;
 }
-.how-section1 .row
-{
-    margin-top: 10%;
+.how-section1 .row {
+  margin-top: 10%;
 }
-.how-img
-{
-    text-align: center;
+.how-img {
+  text-align: center;
 }
-.how-img img{
+.how-img img {
     width: 100%;
 }
 

@@ -75,7 +75,7 @@ class LogoutView(View):
         return redirect('home')
 
 
-class AddRoomView(View):
+class AddProductView(View):
     def get(self, req):
         context = {
             'form': AddProductForm(),
@@ -90,6 +90,15 @@ class AddRoomView(View):
             return HttpResponse('Producto agregado con éxito!')
         else:
             return HttpResponse('Lo siento. Hubo algun problema. Vuelva a intentarlo.')
+
+
+class ProductView(View):
+    def get(self, req, product_id):
+        context = {
+            'product': Product.objects.get(id=product_id),
+            'company_name': company_name
+        }
+        return render(req, 'product.html', context)
 
 
 class MeView(View):

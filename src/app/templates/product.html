@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="user_info">
+    <h2 class="title">{{product.title}}</h2>
+    <h3>{{product.description}}</h3>
+    <h4>Precio: ${{product.price}}</h4>
+    <img class="center" src="{{product.principal_image.url}}">
+  </div>
+{% endblock %}
