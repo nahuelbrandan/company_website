@@ -9,6 +9,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 src/app/migrations/
+src/app/article_images/
 build/
 develop-eggs/
 dist/

@@ -10,10 +10,10 @@ class Product(models.Model):
     title = models.CharField(max_length=100, null=False)
     description = models.CharField(max_length=10000, null=False)
     price = models.IntegerField(null=False)
-    principal_image = models.ImageField(upload_to='app/images', null=False)
-    aditional_image = models.ImageField(upload_to='app/images', null=True)
-    aditional_image_2 = models.ImageField(upload_to='app/images', null=True)
-    aditional_image_3 = models.ImageField(upload_to='app/images', null=True)
+    principal_image = models.ImageField(upload_to='app/article_images', null=False)
+    aditional_image = models.ImageField(upload_to='app/article_images', null=True)
+    aditional_image_2 = models.ImageField(upload_to='app/article_images', null=True)
+    aditional_image_3 = models.ImageField(upload_to='app/article_images', null=True)
 
     def __str__(self):
         return self.title
