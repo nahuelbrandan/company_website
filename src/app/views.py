@@ -10,25 +10,26 @@ from .forms import UserForm, LoginForm, AddProductForm
 from .models import Product
 from termcolor import cprint
 
-company_name = "Company Name"
+company_name = "Nanzi & Cande"
 
 
 class HomeView(View):
     def get(self, req):
         context = {
+            'title': 'N&C Centro de belleza',
             'is_superuser': req.user.is_superuser,
             'is_authenticated': req.user.is_authenticated,
             'username': req.user.username,
             'company_name': company_name,
             'products': Product.objects.all()
         }
-        cprint(Product.objects.all().values_list('principal_image'), 'magenta')
         return render(req, 'home.html', context)
 
 
 class RegisterView(View):
     def get(self, req):
         context = {
+            'title': 'Registro',
             'form': UserForm(),
             'company_name': company_name
         }
@@ -48,6 +49,7 @@ class RegisterView(View):
 class LoginView(View):
     def get(self, req):
         context = {
+            'title': 'Ingresar',
             'form': LoginForm(),
             'company_name': company_name
         }
@@ -78,6 +80,7 @@ class LogoutView(View):
 class AddProductView(View):
     def get(self, req):
         context = {
+            'title': 'Añadir producto',
             'form': AddProductForm(),
             'company_name': company_name
         }
@@ -95,6 +98,7 @@ class AddProductView(View):
 class ProductView(View):
     def get(self, req, product_id):
         context = {
+            'title': 'Producto',
             'product': Product.objects.get(id=product_id),
             'company_name': company_name
         }
@@ -104,6 +108,7 @@ class ProductView(View):
 class MeView(View):
     def get(self, req):
         context = {
+            'title': 'Usuario',
             'company_name': company_name,
             'username': req.user.username,
             'user': req.user,
