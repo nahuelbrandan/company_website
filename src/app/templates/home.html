@@ -4,6 +4,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/products.css' %}" />
+
 
   <div class="how-section1">
     <div class="row">
@@ -43,6 +46,7 @@
     <hr>
   </div>
 
+
   <div class="container">
     <p class="title_of_section"> Galeria: </p>
   	<div class="row">
@@ -81,44 +85,33 @@
     <hr>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <br><br><br><br><br><br><br><br><br><br><br>
-  <div class="container">
-    <h3 class="h3"> Productos destacados. </h3>
-    <div class="row">
-      {% for product in products %}
-        <div class="col-md-3 col-sm-6">
-          <div class="product-grid6">
-            <div class="product-image6">
-                <a href="product/{{product.id}}"><img src="{{product.principal_image.url}}"></a>
+  <br><br><br><br><br><br><br><br>
+    <div class="container">
+      <p class="title_of_section"> Productos destacados: </p>
+      <div class="row clearfix">
+          {% for product in products %}
+            <div class="col-lg-3 col-md-4 col-sm-12">
+              <div class="card product_item">
+                  <div class="body">
+                      <div class="cp_img">
+                          <a href="product/{{product.id}}">
+                            <img src="{{product.principal_image.url}}" alt="Product" class="img-fluid">
+                          </a>
+                          <div class="hover">
+                              <a href="javascript:void(0);" class="btn btn-primary btn-lg waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                          </div>
+                      </div>
+                      <div class="product_details">
+                          <h5><a href="product/{{product.id}}">{{product.title}}</a></h5>
+                          <ul class="product_price list-unstyled">
+                              <li class="new_price">${{product.price}}</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
             </div>
-            <div class="product-content">
-              <h3 class="title"><a href="#">{{product.title}}</a></h3>
-              <div class="price">${{product.price}}</div>
-            </div>
-            <ul class="social">
-              <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-              <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-              <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
+          {% endfor %}
+      </div>
   </div>
 
 <hr>
