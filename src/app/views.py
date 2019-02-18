@@ -5,23 +5,31 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from os import listdir
 
 from .forms import UserForm, LoginForm, AddProductForm
 from .models import Product
 from termcolor import cprint
+
+import os
+from django.conf import settings
 
 company_name = "Nanzi & Cande"
 
 
 class HomeView(View):
     def get(self, req):
+
+        galery_images = ['images/galery/'+f for f in listdir(os.path.join(settings.BASE_DIR, 'app/static/images/galery/'))]
+
         context = {
             'title': 'N&C Centro de belleza',
             'is_superuser': req.user.is_superuser,
             'is_authenticated': req.user.is_authenticated,
             'username': req.user.username,
             'company_name': company_name,
-            'products': Product.objects.all()
+            'products': Product.objects.all(),
+            'galery_images': galery_images
         }
         return render(req, 'home.html', context)
 
