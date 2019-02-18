@@ -1,44 +1,45 @@
 {% extends 'layout.html' %}
 {% block content %}
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
   {% load static %}
-
-  <h1 class='title'> {{company_name}} </h1>
 
   <div class="how-section1">
     <div class="row">
-      <div class="col-md-6 how-img">
-        <img src="https://www.rockandpop.cl/wp-content/uploads/2019/02/Friends.jpg" alt=""/>
+      <div class="col-md-6 how-img1">
+        <img src="{% static 'images/logo.png'%}" alt=""/>
       </div>
-      <div class="col-md-6">
-        <h4>Somos una gran familia</h4>
-        <p class="text-muted">
-          Friends (estilizado «F·R·I·E·N·D·S»), es una serie de televisión estadounidense
-          sobre la vida de un grupo de amigos —Chandler Bing, Phoebe Buffay, Monica Geller,
-          Ross Geller, Rachel Green y Joey Tribbiani— que residen en Manhattan, Nueva York.
-          Suceden tanto buenos como malos momentos, pero con una crítica cómica a los hechos
-          más trascendentales de la actualidad.<br>
-          EJEMPLO DE DESCRIPCIÓN DE LA EMPRESA.
+      <div class="col-md-6 how_description">
+        <p class="description"> Somos una empresa familiar en la que no sólo proveemos servicios
+          propios de peluqueria sino también maquillaje, painados para eventos, manicura, etc.<br>
+          <b>Queremos que salgas de nuestro local en tu mejor versión, renovada y fresca.</b>
         </p>
       </div>
     </div>
-
+    <hr>
     <div class="row">
-      <div class="col-md-6">
-        <h4>Como me rei con ésta serie</h4>
-        <p class="text-muted">
-          The Office es una serie de televisión de comedia estadounidense,
-          ​La serie trata la vida diaria de los empleados de la oficina de
-          Scranton (Pensilvania) de la compañía de papel ficticia Dunder Mifflin.
-          Aunque la serie es de ficción y tiene guiones, se trata de un falso documental,
-          ya que los actores advierten la presencia de las cámaras.<br>
-          EJEMPLO DE DESCRIPCIÓN DE LA EMPRESA.
+      <div class="col-md-6 how_description">
+        <p class="description">
+          Nos avalan 30 años en el rubro y cientos de horas de múltiples y variadas capacitaciones.
         </p>
       </div>
-      <div class="col-md-6 how-img">
-        <img src="https://www.tvinsider.com/wp-content/uploads/2017/12/The-office-1014x570.jpg" alt=""/>
+      <div class="col-md-6 how-img2">
+        <img src="{% static 'images/personal2.png'%}" alt=""/>
       </div>
     </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-6 how-img2">
+        <img src="{% static 'images/fidelite.jpg'%}" alt=""/>
+      </div>
+      <div class="col-md-6 how_description">
+        <p class="description">
+          Contamos con venta de productos de primera calidad, promoviendo el continuo
+          cuidado del cabello y piel de nuestros clientes.
+        </p>
+      </div>
+    </div>
+    <hr>
   </div>
 
   <div class="container">
