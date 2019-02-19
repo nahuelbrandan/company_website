@@ -7,8 +7,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from os import listdir
 
-from .forms import UserForm, LoginForm, AddProductForm
-from .models import Product
+from .forms import UserForm, LoginForm, AddProductForm, AddServiceForm
+from .models import Product, Service
 from termcolor import cprint
 
 import os
@@ -19,7 +19,6 @@ company_name = "Nanzi & Cande"
 
 class HomeView(View):
     def get(self, req):
-
         galery_images = ['images/galery/'+f for f in listdir(os.path.join(settings.BASE_DIR, 'app/static/images/galery/'))]
 
         context = {
@@ -29,6 +28,7 @@ class HomeView(View):
             'username': req.user.username,
             'company_name': company_name,
             'products': Product.objects.all(),
+            'services': Service.objects.all(),
             'galery_images': galery_images
         }
         return render(req, 'home.html', context)
@@ -103,11 +103,39 @@ class AddProductView(View):
             return HttpResponse('Lo siento. Hubo algun problema. Vuelva a intentarlo.')
 
 
+class AddServiceView(View):
+    def get(self, req):
+        context = {
+            'title': 'Añadir servicio',
+            'form': AddServiceForm(),
+            'company_name': company_name
+        }
+        return render(req, 'add_service.html', context)
+
+    def post(self, req):
+        form = AddServiceForm(req.POST, req.FILES)
+        if form.is_valid():
+            Service.objects.create(**form.cleaned_data)
+            return HttpResponse('Servicio agregado con éxito!')
+        else:
+            return HttpResponse('Lo siento. Hubo algun problema. Vuelva a intentarlo.')
+
+
 class ProductView(View):
     def get(self, req, product_id):
         context = {
             'title': 'Producto',
             'product': Product.objects.get(id=product_id),
+            'company_name': company_name
+        }
+        return render(req, 'product.html', context)
+
+
+class ServiceView(View):
+    def get(self, req, service_id):
+        context = {
+            'title': 'Servicio',
+            'service': Service.objects.get(id=service_id),
             'company_name': company_name
         }
         return render(req, 'product.html', context)

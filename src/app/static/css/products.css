@@ -1,42 +1,5 @@
-.c_review {
-    margin-bottom: 0
-}
-
-.c_review li {
-    margin-bottom: 16px;
-    padding-bottom: 13px;
-    border-bottom: 1px solid #e8e8e8
-}
-
-.c_review li:last-child {
-    margin: 0;
-    border: none
-}
-
-.c_review .avatar {
-    float: left;
-    width: 80px
-}
-
-.c_review .comment-action {
-    float: left;
-    width: calc(100% - 80px)
-}
-
-.c_review .comment-action .c_name {
-    margin: 0
-}
-
-.c_review .comment-action p {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 95%;
-    display: block
-}
-
 .product_item:hover .cp_img {
-    top: -40px
+    top: -10px
 }
 
 .product_item:hover .cp_img img {
@@ -74,7 +37,7 @@
 }
 
 .product_item .product_details {
-    padding-top: 110%;
+    padding-top: 150%;
     text-align: center
 }
 

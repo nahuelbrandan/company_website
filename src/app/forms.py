@@ -18,8 +18,14 @@ class AddProductForm(forms.Form):
     title = forms.CharField(label='Titulo', max_length=200, required=True)
     description = forms.CharField(label='Descripción', widget=forms.Textarea, required=True)
     price = forms.IntegerField(label="Precio", required=True)
-
     principal_image = forms.ImageField(label="Imagen principal", required=True)
     aditional_image = forms.ImageField(label="Imagen adicional", required=False)
     aditional_image_2 = forms.ImageField(label="Imagen adicional 2", required=False)
     aditional_image_3 = forms.ImageField(label="Imagen adicional 3", required=False)
+
+
+class AddServiceForm(forms.Form):
+    title = forms.CharField(label='Titulo', max_length=200, required=True)
+    description = forms.CharField(label='Descripción', widget=forms.Textarea, required=True)
+    price = forms.IntegerField(label="Precio", required=True)
+    image = forms.ImageField(label="Imagen", required=True)

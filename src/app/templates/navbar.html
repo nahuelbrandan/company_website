@@ -5,8 +5,11 @@
     {% if is_authenticated %}
       {% if is_superuser %}
         <a class="p-4 text-dark" href="{% url 'add_product'%}"><span class="glyphicon glyphicon-plus"></span> Agregar producto</a>
+        <a class="p-4 text-dark" href="{% url 'add_service'%}"><span class="glyphicon glyphicon-plus"></span> Agregar servicio</a>
+        <a class="p-4 text-dark" href="{% url 'me'%}"><span class="glyphicon glyphicon-user"></span> <b>Admin:</b> {{username}}</a>
+      {% else %}
+        <a class="p-4 text-dark" href="{% url 'me'%}"><span class="glyphicon glyphicon-user"></span> {{username}}</a>
       {% endif %}
-      <a class="p-4 text-dark" href="{% url 'me'%}"><span class="glyphicon glyphicon-user"></span> {{username}}</a>
       <a class="p-4 text-dark" href="{% url 'logout'%}"><span class="glyphicon glyphicon-log-out"></span> Salir</a>
     {% else %}
       <a class="p-4 text-dark" href="{% url 'login'%}">Ingresar</a>

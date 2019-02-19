@@ -34,7 +34,7 @@
     <hr>
     <div class="row">
       <div class="col-md-6 how-img2">
-        <img src="{% static 'images/fidelite.jpg'%}" alt=""/>
+        <img src="{% static 'images/productospeluqueria.jpg'%}" alt=""/>
       </div>
       <div class="col-md-6 how_description">
         <p class="description">
@@ -43,77 +43,105 @@
         </p>
       </div>
     </div>
-    <hr>
   </div>
 
-
-  <div class="container">
-    <p class="title_of_section"> Galeria: </p>
-  	<div class="row">
-  		<div class="row">
-        {% for images in galery_images %}
-          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-            <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
-                data-image="{% static images %}"
-                data-target="#image-gallery">
-                <img class="img-thumbnail"
-                      src="{% static images %}"
-                      alt="peinados">
-            </a>
-          </div>
-        {% endfor %}
-      </div>
-
-      <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="image-gallery-title"></h4>
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+  <div class="background_with_color">
+    <div class="container">
+      <p class="title_of_section"> Galeria: </p>
+    	<div class="row">
+    		<div class="row">
+          {% for images in galery_images %}
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+              <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                  data-image="{% static images %}"
+                  data-target="#image-gallery">
+                  <img class="img-thumbnail"
+                        src="{% static images %}"
+                        alt="peinados">
+              </a>
             </div>
-            <div class="modal-body">
-              <img id="image-gallery-image" class="img-responsive col-md-12" src="">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i class="fa fa-arrow-left"></i></button>
-              <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i></button>
+          {% endfor %}
+        </div>
+
+        <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="image-gallery-title"></h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+              </div>
+              <div class="modal-body">
+                <img id="image-gallery-image" class="img-responsive col-md-12" src="">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i class="fa fa-arrow-left"></i></button>
+                <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i></button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-  	</div>
-    <hr>
+    	</div>
+      <hr>
+    </div>
   </div>
-
   <br><br><br><br><br><br><br><br>
-    <div class="container">
-      <p class="title_of_section"> Productos destacados: </p>
-      <div class="row clearfix">
-          {% for product in products %}
-            <div class="col-lg-3 col-md-4 col-sm-12">
-              <div class="card product_item">
-                  <div class="body">
-                      <div class="cp_img">
-                          <a href="product/{{product.id}}">
-                            <img src="{{product.principal_image.url}}" alt="Product" class="img-fluid">
-                          </a>
-                          <div class="hover">
-                              <a href="javascript:void(0);" class="btn btn-primary btn-lg waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
-                          </div>
-                      </div>
-                      <div class="product_details">
-                          <h5><a href="product/{{product.id}}">{{product.title}}</a></h5>
-                          <ul class="product_price list-unstyled">
-                              <li class="new_price">${{product.price}}</li>
-                          </ul>
-                      </div>
-                  </div>
+  <div class="container">
+    <p class="title_of_section"> Servicios: </p>
+    <div class="row clearfix">
+      {% for service in services %}
+        <div class="col-lg-3 col-md-4 col-sm-12">
+          <div class="card product_item">
+              <div class="cp_img">
+                <a href="service/{{service.id}}">
+                  <img src="{{service.image.url}}" alt="Service" class="img-fluid">
+                </a>
+                <div class="hover">
+                  <a href="javascript:void(0);" class="btn btn-primary btn-lg waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                </div>
+              </div>
+              <div class="product_details">
+                <h5><a href="service/{{service.id}}">{{service.title}}</a></h5>
+                <ul class="product_price list-unstyled">
+                  <li class="new_price"> Desde: ${{service.price}}</li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <hr>
+  <br><br><br><br><br><br><br><br>
+  <div class="container">
+    <p class="title_of_section"> Productos: </p>
+    <div class="row clearfix">
+      {% for product in products %}
+        <div class="col-lg-3 col-md-4 col-sm-12">
+          <div class="card product_item">
+            <div class="body">
+              <div class="cp_img">
+                <a href="product/{{product.id}}">
+                  <img src="{{product.principal_image.url}}" alt="Product" class="img-fluid">
+                </a>
+                <div class="hover">
+                  <a href="javascript:void(0);" class="btn btn-primary btn-lg waves-effect"><i class="zmdi zmdi-shopping-cart"></i></a>
+                </div>
+              </div>
+              <div class="product_details">
+                <h5><a href="product/{{product.id}}">{{product.title}}</a></h5>
+                <ul class="product_price list-unstyled">
+                  <li class="new_price">${{product.price}}</li>
+                </ul>
               </div>
             </div>
-          {% endfor %}
-      </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
   </div>
+  <hr>
 
-<hr>
 
+  <p class="title_of_section">Contacto:</p>
+  <hr>
 {% endblock %}
