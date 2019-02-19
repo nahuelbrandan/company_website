@@ -13,6 +13,11 @@
   width: 50%;
 }
 
+.gmap_canvas {
+  border-style: solid;
+  border-width: thin;
+}
+
 .center_form {
   display: flex;
   justify-content: center;

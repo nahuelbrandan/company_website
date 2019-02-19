@@ -1,5 +1,5 @@
 .product_item:hover .cp_img {
-    top: -10px
+    top: -1px
 }
 
 .product_item:hover .cp_img img {
@@ -37,7 +37,7 @@
 }
 
 .product_item .product_details {
-    padding-top: 150%;
+    padding-top: 155%;
     text-align: center
 }
 
