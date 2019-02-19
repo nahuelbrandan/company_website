@@ -1,5 +1,5 @@
-# compartir_alquiler
-Aplicación web, desarrollada en Python con Django, para poder encontrar compañeros de alquiler.
+# Company_website
+Página web empresarial. Además de informar sobre la empresa, esta la posibilidad de mostrar y vender sus productos y/o servicios. Si bien está desarrollada para una empresa en particular, haciendo cambios en el contenido se podría adaptar para cualquier otra.Desarrollada en Python con Django.
 
 ### Autor:
 [Brandan, Nahuel] (mailto:nahuelbrandan123@gmail.com)
