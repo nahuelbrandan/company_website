@@ -1,16 +1,8 @@
-# compartir_alquiler
-Aplicación web, desarrollada en Python con Django, para poder encontrar compañeros de alquiler.
+# Company_website
+Página web empresarial. Además de informar sobre la empresa, esta la posibilidad de mostrar y vender sus productos y/o servicios. Si bien está desarrollada para una empresa en particular, haciendo cambios en el contenido se podría adaptar para cualquier otra.Desarrollada en Python con Django.
 
 ### Autor:
-[Brandan, Nahuel] (mailto:nahuelbrandan123@gmail.com)
-
-### Code style:
-
-##### Python:
-[PEP8] (https://www.python.org/dev/peps/pep-0008/)
-
-##### HTML:
-2 espacios para identación.
+Nahuel Brandan. (nahuelbrandan123@gmail.com)
 
 ## Instalación:
 
@@ -19,13 +11,13 @@ Aplicación web, desarrollada en Python con Django, para poder encontrar compañ
 3.  Ingresar a éste entorno virtual ejecutando: `source env/bin/activate`
 4.  Chequeamos las librerias instaladas en éste nuevo entorno ejecutando: `pip3 list`
     Deberían ser sólo las básicas, obteniendo:
-    """
-    Package    Version
-    ---------- -------
-    pip        19.0.1
-    setuptools 40.8.0
-    wheel      0.32.3
-    """
+    
+        Package    Version
+        ---------- -------
+        pip        19.0.1
+        setuptools 40.8.0
+        wheel      0.32.3
+
 5.  Instalar django: `pip3 install django pillow django-livereload-server django-crispy-forms termcolor`
 6.  [Éste paso sólo lo realizo yo por única vez para crear el proyecto.]
     `django-admin startproject compartir_alquiler`
