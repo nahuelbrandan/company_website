@@ -1,3 +1,71 @@
+body, html {
+  height: 100%;
+}
+.masthead {
+  height: 50%;
+  min-height: 500px;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url('../images/cover.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+	position: relative;
+  text-align: center;
+}
+.masthead .centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.masthead h2 {
+	color: #fff;
+	font-family: 'Cormorant Garamond';
+	font-size: 25px;
+	font-weight: 200;
+	line-height: 50px;
+	margin-bottom: -40px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.masthead h1 {
+	color: #fff;
+	font-family: 'Cormorant Garamond';
+	text-decoration: underline;
+	font-size: 60px;
+	font-weight: 400;
+	line-height: 72px;
+	letter-spacing: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.masthead p {
+	color: #fff;
+	font-family: 'Cormorant Garamond';
+	font-size: 28px;
+	font-style: italic;
+	font-weight: 400;
+	line-height: 48px;
+	max-width: 640px;
+	margin: 0 auto 48px;
+	text-align: center;
+}
+.masthead a {
+	color: #e66c7e;	border-bottom: 2px solid #e66c7e;
+	font-family: 'Cormorant Garamond';
+	font-size: 16px;
+	font-weight: 700;
+	letter-spacing: 3px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.masthead a:hover {
+	color: #fff;
+	border-bottom: 2px solid #fff;
+}
+
+
 .background_color_grey {
   background-color: #f5f5f0;
 }
@@ -50,7 +118,7 @@
 }
 
 .how_description .description {
-  background-color:  #f5f5f0;  
+  background-color:  #f5f5f0;
 }
 
 

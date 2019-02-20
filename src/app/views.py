@@ -19,7 +19,7 @@ company_name = "Nanzi & Cande"
 
 class HomeView(View):
     def get(self, req):
-        galery_images = ['images/galery/'+f for f in listdir(os.path.join(settings.BASE_DIR, 'app/static/images/galery/'))]
+        galery_images = ['images/galery/principal/'+f for f in listdir(os.path.join(settings.BASE_DIR, 'app/static/images/galery/principal/'))]
 
         context = {
             'title': 'N&C Centro de belleza',

@@ -8,6 +8,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/products.css' %}" />
 
+  <!-- Full Page Image Header with Vertically Centered Content -->
+  <div class="masthead">
+    <div class="centered">
+      <h2>Centro de belleza</h2>
+      <h1>Nanzi y Cande</h1>
+      <p>Av. Sarmiento 666 - Río I - Cba - Arg.</p>
+    </div>
+  </div>
+
   <div class="how-section1">
     <div class="row">
       <div class="col-md-6 how-img1">
@@ -79,7 +88,7 @@
   </div>
 
   <div class="container">
-    <p class="title_of_section"> Productos: </p>
+    <p class="title_of_section"> Productos destacados: </p>
     <div class="row clearfix">
       {% for product in products %}
         <div class="col-lg-3 col-md-4 col-sm-12">
