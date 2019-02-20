@@ -1,5 +1,10 @@
-.background_with_color {
+.background_color_grey {
   background-color: #f5f5f0;
+}
+
+.background_color_pink {
+  background-color: #fcf6f6;
+  margin-top: -12%;
 }
 
 .user_info h3, h4 {
@@ -43,7 +48,13 @@
 .how_description {
   margin: auto;
 }
-.how-section1 .description {
+
+.how_description .description {
+  background-color:  #f5f5f0;  
+}
+
+
+.description {
   color: #333;
   text-align: center;
 	font-family: 'Noto Serif';
@@ -54,13 +65,8 @@
 	margin-bottom: 24px;
 	max-width: 600px;
 	text-indent: 10px;
-  background-color:  #f5f5f0;
 }
 
-
-.container {
-  margin-top: -10%
-}
 .btn:focus, .btn:active, button:focus, button:active {
   outline: none !important;
   box-shadow: none !important;
@@ -76,6 +82,7 @@
 .title_of_section {
   color: #333;
   text-align: center;
+  text-decoration: underline;
 	font-family: 'Noto Serif';
 	font-size: 40px;
 	font-style: italic;
@@ -83,4 +90,15 @@
 	font-weight: 500;
 	line-height: 54px;
 	margin-bottom: 5px;
+}
+
+.contact {
+	color: #272623;
+	font-family: 'Roboto Condensed';
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: 1px;
+	margin-bottom: 48px;
+	text-align: left;
 }
