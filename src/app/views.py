@@ -8,7 +8,8 @@ from django.contrib.auth.decorators import login_required
 from os import listdir
 from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import user_passes_test
 
 
 from .forms import UserForm, LoginForm, AddProductForm, AddServiceForm
@@ -89,6 +90,7 @@ class LogoutView(View):
         return redirect('home')
 
 
+@method_decorator(user_passes_test(lambda u: u.is_superuser), name='dispatch')
 class AddProductView(View):
     def get(self, req):
         context = {
@@ -107,6 +109,7 @@ class AddProductView(View):
             return HttpResponse('Lo siento. Hubo algun problema. Vuelva a intentarlo.')
 
 
+@method_decorator(user_passes_test(lambda u: u.is_superuser), name='dispatch')
 class AddServiceView(View):
     def get(self, req):
         context = {
