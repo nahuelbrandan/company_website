@@ -6,6 +6,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from os import listdir
+from django.utils.decorators import method_decorator
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
 
 from .forms import UserForm, LoginForm, AddProductForm, AddServiceForm
 from .models import Product, Service
@@ -72,7 +76,6 @@ class LoginView(View):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(req, user)
-                messages.info(req, 'Loggin correcto. Ingresando.')
                 return redirect('home')
             else:
                 messages.info(req, 'El usuario o contraseña son incorrectos. Vuelva a intentar')
@@ -81,7 +84,8 @@ class LoginView(View):
 
 class LogoutView(View):
     def get(self, req):
-        logout(req)
+        if req.user.is_authenticated:
+            logout(req)
         return redirect('home')
 
 
@@ -141,7 +145,7 @@ class ServiceView(View):
         return render(req, 'product.html', context)
 
 
-class MeView(View):
+class MeView(LoginRequiredMixin, View):
     def get(self, req):
         context = {
             'title': 'Usuario',

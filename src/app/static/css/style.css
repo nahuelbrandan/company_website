@@ -170,3 +170,17 @@ body, html {
 	margin-bottom: 48px;
 	text-align: left;
 }
+
+.site-footer {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 640px;
+  text-align: center;
+  color: #999;
+}
+.site-footer a {
+  color: #333;
+}
+.site-footer p {
+	color: #979797;
+}
