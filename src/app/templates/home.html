@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/products.css' %}" />
 
-  <!-- Full Page Image Header with Vertically Centered Content -->
+  <!-- Cover image -->
   <div class="masthead">
     <div class="centered">
       <h2>Centro de belleza</h2>
@@ -17,6 +17,7 @@
     </div>
   </div>
 
+  <!-- Descripción de la empresa -->
   <div class="how-section1">
     <div class="row">
       <div class="col-md-6 how-img1">
@@ -55,6 +56,7 @@
     <hr>
   </div>
 
+  <!-- Servicios -->
   <div class="background_color_pink">
     <div class="container">
       <p class="title_of_section"> Servicios: </p>
@@ -105,7 +107,7 @@
               <div class="product_details">
                 <h5><a href="product/{{product.id}}">{{product.title}}</a></h5>
                 <ul class="product_price list-unstyled">
-                  <li class="new_price">${{product.price}}</li>
+                  <li class="new_price">${{product.price}} (Arg)</li>
                 </ul>
               </div>
             </div>
